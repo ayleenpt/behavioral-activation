@@ -1,0 +1,21 @@
+.day {
+  height: auto;
+  width: auto;
+}
+
+.weekday {
+  border: 2px solid black;
+  height: 20px;
+  width: 100px;
+}
+
+.date {
+  border: 2px solid black;
+  width: 100px;
+  height: 20px;
+}
+
+.day.today {
+  background: #e3f2fd;
+  position: relative;
+}

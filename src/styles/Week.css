@@ -11,21 +11,25 @@
   display: flex;
   flex-direction: row;
   align-items: start;
-  width: 100%;
-  height: 20px;
+  height: auto;
 }
 
-.gap {
+.gap-left {
   width: 300px;
-  height: 19px;
+  height: 44px;
   border: 2px solid black;
-  margin: -1px;
 }
 
-.day {
-  border: 2px solid black;
+.gap-right{
   width: 100px;
-  margin: -1px;
+  height: 44px;
+  border: 2px solid black;
+}
+
+.add-task {
+  height: 25px;
+  width: 100%;
+  border: 2px solid black;
 }
 
 .modal-overlay {
@@ -37,10 +41,11 @@
   justify-content: center;
   z-index: 1000;
 }
+
 .modal {
   background: #fff;
   padding: 2em;
-  border-radius: 8px;
+  border: 8px;
   min-width: 300px;
   box-shadow: 0 2px 16px rgba(0,0,0,0.2);
 }
