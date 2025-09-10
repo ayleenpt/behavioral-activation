@@ -1,0 +1,33 @@
+.task {
+  display: flex;
+  flex-direction: task;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.rowBox {
+  border: 2px solid black;
+  height: 20px;
+  margin: -1px;
+}
+
+.title {
+  width: 300px;
+}
+
+.checkboxes {
+  display: flex;
+  flex-direction: task;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkbox {
+  width: 100px;
+}
+
+.status {
+  width: 100px;
+}
