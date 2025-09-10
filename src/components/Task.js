@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/Task.css';
 
-function Task({task, times, period}) {
+function Task({ task, times, period }) {
   const [checked, setChecked] = useState(Array(7).fill(false));
 
   const handleCheck = idx => {
@@ -10,15 +10,30 @@ function Task({task, times, period}) {
     );
   };
 
-  // Count how many boxes are checked
-  const checkedCount = checked.filter(Boolean).length;
+  let status = '';
 
-  // Determine if "done" should be shown
-  let isDone = false;
   if (period === 'week') {
-    isDone = checkedCount >= times;
+    const checkedCount = checked.filter(Boolean).length;
+    const todayIdx = new Date().getDay() === 0 ? 6 : new Date().getDay() - 1;
+    const daysLeft = checked.slice(todayIdx).filter(val => !val).length;
+
+    if (checkedCount >= times) {
+      status = 'done';
+    } else if (checkedCount + daysLeft >= times) {
+      status = 'on track';
+    } else {
+      status = 'missed';
+    }
   } else if (period === 'day') {
-    isDone = checked.every(Boolean);
+    const todayIdx = new Date().getDay() === 0 ? 6 : new Date().getDay() - 1;
+    const missed = checked.slice(0, todayIdx).some(val => !val);
+    if (checked.every(Boolean)) {
+      status = 'done';
+    } else if (missed) {
+      status = 'missed';
+    } else {
+      status = 'on track';
+    }
   }
 
   return (
@@ -35,7 +50,8 @@ function Task({task, times, period}) {
           </div>
         ))}
       </div>
-      <div className="status rowBox">{isDone ? 'done' : ''}</div>
+      <div className="status rowBox">{status}</div>
     </div>
   );
-} export default Task;
+}
+export default Task;
