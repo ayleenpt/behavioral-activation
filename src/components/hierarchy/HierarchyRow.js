@@ -22,6 +22,8 @@ function HierarchyRow({ task }) {
       <div className="hierarchy-box task-label">{task}</div>
       
       <StartTracking className="hierarchy-box" onClick={startTracking} />
+
+      <button className="hierarchy-box delete-button">x</button>
     </div>
   );
 } export default HierarchyRow;

@@ -1,30 +1,33 @@
 .hierarchy-header {
-  width: 100%;
+  width: auto;
   height: 50px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
 }
 
 .header-box {
   height: 100%;
   display: flex;
-  text-align: start;
   align-items: center;
-  padding-left: 10px;
   border: 1px solid green;
   font-size: 20px;
 }
 
 .difficulty-header {
-  width: 120px;
+  width: 100px;
+  justify-content: center;
 }
 
 .task-header {
-  width: 100%;
+  width: 400px;
+  justify-content: start;
+  padding-left: 10px;
 }
 
 .sort-header {
   width: 170px;
+  justify-content: space-between;
+  padding: 0 10px;
 }
