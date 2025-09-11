@@ -68,9 +68,9 @@ function Week() {
       {tasks.map((t, idx) => (
         <Task key={idx} task={t.task} times={t.times} period={t.period} />
       ))}
-      <div className="add-task">
+      <div className="add-button">
         <button
-          className="add-task-button"
+          className="add-button-button"
           onClick={handleAddTask}
         >
           Add Task

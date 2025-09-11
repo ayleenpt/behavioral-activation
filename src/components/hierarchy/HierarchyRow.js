@@ -20,6 +20,7 @@ function HierarchyRow({ task }) {
       />
 
       <div className="hierarchy-box task">{task}</div>
+      
       <StartTracking className="hierarchy-box" onClick={startTracking} />
     </div>
   );
