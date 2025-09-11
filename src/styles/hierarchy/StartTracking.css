@@ -1,0 +1,16 @@
+.start-tracking {
+  width: 170px;
+}
+
+.start-tracking-button {
+  width: 90%;
+  height: 25px;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+}

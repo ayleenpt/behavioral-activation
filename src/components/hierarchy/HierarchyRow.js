@@ -1,13 +1,18 @@
 import { useState } from 'react';
 import Difficulty from './Difficulty';
+import StartTracking from './StartTracking';
 import '../../styles/hierarchy/HierarchyRow.css';
 
 function HierarchyRow({ task }) {
   const [difficulty, setDifficulty] = useState(1);
 
+  const startTracking=() => {
+    alert(`Started tracking ${task}`);
+  }
+
   return (
     <div className="hierarchy-row">
-      
+
       <Difficulty
         className="hierarchy-box"
         difficulty={difficulty}
@@ -15,7 +20,7 @@ function HierarchyRow({ task }) {
       />
 
       <div className="hierarchy-box task">{task}</div>
-      <button className="hierarchy-box assign">move to tracker</button>
+      <StartTracking className="hierarchy-box" onClick={startTracking} />
     </div>
   );
 } export default HierarchyRow;
