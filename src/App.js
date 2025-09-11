@@ -1,5 +1,5 @@
 import { HashRouter as Router, Routes, Route } from 'react-router-dom'
-import Tracker from './components/Tracker';
+import Tracker from './components/tracker/Tracker';
 import Hierarchy from './components/hierarchy/Hierarchy';
 import './App.css';
 

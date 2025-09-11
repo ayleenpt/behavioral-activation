@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/Task.css';
+import '../../styles/tracker/Task.css';
 
 function Task({ task, times, period }) {
   const [checked, setChecked] = useState(Array(7).fill(false));
@@ -53,5 +53,4 @@ function Task({ task, times, period }) {
       <div className="status rowBox">{status}</div>
     </div>
   );
-}
-export default Task;
+} export default Task;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Day from './Day';
 import Task from './Task';
-import '../styles/Week.css';
+import '../../styles/tracker/Week.css';
 
 function getWeekDates() {
   const today = new Date();

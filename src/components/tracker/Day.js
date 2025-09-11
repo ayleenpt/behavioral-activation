@@ -1,4 +1,4 @@
-import '../styles/Day.css';
+import '../../styles/tracker/Day.css';
 
 function Day({ weekday, date, isToday }) {
   return (
