@@ -1,6 +1,7 @@
 import HierarchyRow from './HierarchyRow';
-import '../../styles/hierarchy/Hierarchy.css';
 import AddTask from './AddTask';
+import '../../styles/hierarchy/Hierarchy.css';
+import HierarchyHeader from './HierarchyHeader';
 
 function Hierarchy({ category = "Default Category" }) {
   const addTask = () => {
@@ -10,10 +11,10 @@ function Hierarchy({ category = "Default Category" }) {
   return (
     <div className="hierarchy">
       <div className="category">{category}</div>
-
       <AddTask onClick={addTask} />
 
       <div className="grid">
+        <HierarchyHeader />
         <HierarchyRow difficulty={1} task="task" />
       </div>
     </div>

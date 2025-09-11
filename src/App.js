@@ -9,9 +9,9 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Tracker />} />
-          <Route path="/enjoyment" element={<Hierarchy category="Enjoyment"/>} />
-          <Route path="/value" element={<Hierarchy category="Value"/>} />
-          <Route path="/routine" element={<Hierarchy category="Routine"/>} />
+          <Route path="/enjoyment" element={<Hierarchy category="enjoyment"/>} />
+          <Route path="/value" element={<Hierarchy category="value"/>} />
+          <Route path="/routine" element={<Hierarchy category="routine"/>} />
         </Routes>
       </Router>
     </div>

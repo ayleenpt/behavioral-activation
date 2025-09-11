@@ -19,7 +19,7 @@ function HierarchyRow({ task }) {
         setDifficulty={setDifficulty}
       />
 
-      <div className="hierarchy-box task">{task}</div>
+      <div className="hierarchy-box task-label">{task}</div>
       
       <StartTracking className="hierarchy-box" onClick={startTracking} />
     </div>
