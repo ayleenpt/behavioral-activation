@@ -3,27 +3,24 @@ import Difficulty from './Difficulty';
 import StartTracking from './StartTracking';
 import '../../styles/hierarchy/HierarchyRow.css';
 
-function HierarchyRow({ task }) {
+function HierarchyRow({ task, onDelete }) {
   const [difficulty, setDifficulty] = useState(1);
 
-  const startTracking=() => {
+  const startTracking = () => {
     alert(`Started tracking ${task}`);
-  }
+  };
 
   return (
     <div className="hierarchy-row">
-
       <Difficulty
         className="hierarchy-box"
         difficulty={difficulty}
         setDifficulty={setDifficulty}
       />
-
       <div className="hierarchy-box task-label">{task}</div>
-      
       <StartTracking className="hierarchy-box" onClick={startTracking} />
-
-      <button className="hierarchy-box delete-button">x</button>
+      <button className="hierarchy-box delete-button" onClick={onDelete}>x</button>
     </div>
   );
-} export default HierarchyRow;
+}
+export default HierarchyRow;
