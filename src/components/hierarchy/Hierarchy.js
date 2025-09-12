@@ -7,19 +7,6 @@ import '../../styles/hierarchy/Hierarchy.css';
 function Hierarchy({ category = "Default Category" }) {
   const [tasks, setTasks] = useState([]);
 
-  const deleteTask = (task,id) => {
-    if (window.confirm(`Are you sure you want to delete this task?\n\n${task}`)) {
-      fetch(`http://localhost:5000/api/tasks/${id}`, {
-        method: 'DELETE',
-      })
-        .then(res => {
-          if (res.ok) fetchTasks();
-        })
-        .catch(err => console.error(err));
-    }
-  };
-
-
   const fetchTasks = () => {
     fetch('http://localhost:5000/api/tasks')
       .then(res => res.json())
@@ -45,7 +32,7 @@ function Hierarchy({ category = "Default Category" }) {
           <HierarchyRow
             key={t._id}
             task={t}
-            onDelete={() => deleteTask(t.taskName, t._id)}
+            refreshTasks={fetchTasks}
           />
         ))}
       </div>

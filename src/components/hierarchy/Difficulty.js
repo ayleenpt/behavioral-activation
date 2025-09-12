@@ -1,15 +1,30 @@
+import { useState } from 'react';
 import '../../styles/hierarchy/Difficulty.css';
 
-function Difficulty({ className, difficulty, setDifficulty, min = 0, max = 7 }) {
-  const handleChange = (e) => {
-    let val = Number(e.target.value);
+function Difficulty({ className, task, refreshTasks, min = 0, max = 7 }) {
+  const [difficulty, setDifficulty] = useState(task.difficulty);
+
+  const handleDifficultyChange = (eOrValue) => {
+    let val = typeof eOrValue === 'number' ? eOrValue : Number(eOrValue.target.value);
     if (val < min) val = min;
     if (val > max) val = max;
+
     setDifficulty(val);
+
+    fetch(`http://localhost:5000/api/tasks/${task._id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ...task, difficulty: val })
+    })
+      .then(res => res.json())
+      .then(updated => {
+        if (refreshTasks) refreshTasks();
+      })
+      .catch(err => console.error(err));
   };
 
-  const increment = () => setDifficulty(d => (d < max ? d + 1 : max));
-  const decrement = () => setDifficulty(d => (d > min ? d - 1 : min));
+  const increment = () => handleDifficultyChange(difficulty + 1);
+  const decrement = () => handleDifficultyChange(difficulty - 1);
 
   return (
     <div className={`${className} difficulty`}>
@@ -26,7 +41,7 @@ function Difficulty({ className, difficulty, setDifficulty, min = 0, max = 7 }) 
         min={min}
         max={max}
         value={difficulty}
-        onChange={handleChange}
+        onChange={handleDifficultyChange}
       />
       
       <button
