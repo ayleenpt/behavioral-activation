@@ -1,12 +1,12 @@
-import '../../styles/navigation/Categories.css';
+import '../../styles/navigation/Navigation.css';
 
 function Categories({ baseUrl, category }) {
   return (
-    <div className="categories">
+    <div className="navigation categories">
         {['routine', 'enjoyment', 'value'].map(cat => (
           <button
             key={cat}
-            className={`category${cat === category ? ' selected-category' : ''}`}
+            className={`path${cat === category ? ' selected-path' : ''}`}
             onClick={() => window.location.href = `/#/${baseUrl}/${cat}`}
           >
             {cat}

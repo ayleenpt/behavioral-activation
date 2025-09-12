@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Pages from '../navigation/Pages';
 import Categories from '../navigation/Categories';
 import HierarchyRow from './HierarchyRow';
 import AddTask from './AddTask';
@@ -24,6 +25,7 @@ function Hierarchy({ category }) {
 
   return (
     <div className="hierarchy">
+      <Pages baseUrl="hierarchy" category={category} />
       <Categories baseUrl="hierarchy" category={category} />
 
       <AddTask refreshTasks={fetchTasks} category={category} />
