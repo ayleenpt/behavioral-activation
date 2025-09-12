@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Categories from '../navigation/Categories';
 import HierarchyRow from './HierarchyRow';
 import AddTask from './AddTask';
 import HierarchyHeader from './HierarchyHeader';
@@ -23,17 +24,7 @@ function Hierarchy({ category }) {
 
   return (
     <div className="hierarchy">
-      <div className="categories">
-        {['routine', 'enjoyment', 'value'].map(cat => (
-          <button
-            key={cat}
-            className={`category${cat === category ? ' selected-category' : ''}`}
-            onClick={() => window.location.href = `/#/${cat}`}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
+      <Categories baseUrl="hierarchy" category={category} />
 
       <AddTask refreshTasks={fetchTasks} category={category} />
 

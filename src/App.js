@@ -13,21 +13,21 @@ function App() {
           <Route path="/" element={<Tracker />} />
 
           <Route
-            path="/enjoyment"
+            path="/hierarchy/enjoyment"
             element={
               <Hierarchy category="enjoyment" />
             }
           />
 
           <Route
-            path="/value"
+            path="/hierarchy/value"
             element={
               <Hierarchy category="value" />
             }
           />
 
           <Route
-            path="/routine"
+            path="/hierarchy/routine"
             element={
               <Hierarchy category="routine" />
             }
