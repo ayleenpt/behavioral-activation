@@ -12,3 +12,8 @@
   font-weight: bold;
   margin: 40px 0;
 }
+
+.tracker-grid {
+  width: 1100px;
+  height: auto;
+}

@@ -4,13 +4,15 @@
 }
 
 .weekday {
-  border: 2px solid black;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
   height: 20px;
   width: 100px;
 }
 
 .date {
-  border: 2px solid black;
+  border: 1px solid black;
+  border-left: none;
   width: 100px;
   height: 20px;
 }

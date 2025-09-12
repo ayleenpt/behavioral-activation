@@ -20,7 +20,7 @@ function Hierarchy({ category = "Default Category" }) {
       <div className="category">{category}</div>
       <AddTask onAdd={addTask} />
 
-      <div className="grid">
+      <div className="hierarchy-grid">
         <HierarchyHeader />
         {tasks.map((t, idx) => (
           <HierarchyRow key={idx} task={t.task} onDelete={() => deleteTask(idx)} />
