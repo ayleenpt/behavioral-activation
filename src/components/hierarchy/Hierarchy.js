@@ -4,8 +4,7 @@ import AddTask from './AddTask';
 import HierarchyHeader from './HierarchyHeader';
 import '../../styles/hierarchy/Hierarchy.css';
 
-function Hierarchy({ category = "Default Category" }) {
-  const [tasks, setTasks] = useState([]);
+function Hierarchy({ category = "Default Category", tasks, setTasks }) {
 
   const addTask = (task) => {
     setTasks([...tasks, task]);

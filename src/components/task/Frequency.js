@@ -1,3 +1,3 @@
-export function Frequency(times, period) {
-  return { times, period };
+export function Frequency(count, interval) {
+  return { count, interval };
 }
