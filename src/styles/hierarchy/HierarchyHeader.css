@@ -11,23 +11,27 @@
   height: 100%;
   display: flex;
   align-items: center;
-  border: 1px solid green;
   font-size: 20px;
 }
 
 .difficulty-header {
   width: 100px;
   justify-content: center;
+  border: 1px solid black;
 }
 
 .hierarchy-task-header {
-  width: 400px;
+  width: 385px;
   justify-content: start;
   padding-left: 10px;
+  border: 1px solid black;
+  border-left: none;
 }
 
 .sort-header {
-  width: 170px;
+  width: 185px;
   justify-content: space-between;
   padding: 0 10px;
+  border: 1px solid black;
+  border-left: none;
 }

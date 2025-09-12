@@ -19,6 +19,7 @@ function Difficulty({ className, difficulty, setDifficulty, min = 0, max = 7 }) 
         aria-label="Decrease difficulty">
         -
       </button>
+
       <input
         className="difficulty-input"
         type="number"
@@ -27,6 +28,7 @@ function Difficulty({ className, difficulty, setDifficulty, min = 0, max = 7 }) 
         value={difficulty}
         onChange={handleChange}
       />
+      
       <button
         className="difficulty-adjust"
         onClick={increment}

@@ -12,19 +12,33 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid green;
   font-size: 16px;
 }
 
 .task-label {
-  width: 400px;
+  width: 385px;
   justify-content: start;
   padding-left: 10px;
+  border-bottom: 1px solid black;
 }
 
-.delete-button {
-  width: 20px;
+.delete-hierarchy-row {
+  width: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.delete-button {
+  border: none;
+  height: 25px;
+  width: 25px;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+.delete-button:hover {
+  cursor: pointer;
 }

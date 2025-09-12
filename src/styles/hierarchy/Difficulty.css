@@ -1,5 +1,20 @@
 .difficulty {
   width: 100px;
+  border: 1px solid black;
+  border-top: none;
+  display: flex;
+  gap: 5px;
+}
+
+.difficulty-adjust {
+  width: 25px;
+  height: 25px;
+  border: none;
+  border-radius: 8px;
+}
+
+.difficulty-adjust:hover {
+  cursor: pointer;
 }
 
 .difficulty-input {

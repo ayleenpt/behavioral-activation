@@ -1,5 +1,7 @@
 .start-tracking {
   width: 170px;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
 }
 
 .start-tracking-button {

@@ -24,7 +24,9 @@ function HierarchyRow({ task, onDelete }) {
       />
       <div className="hierarchy-box task-label">{task.taskName}</div>
       <StartTracking className="hierarchy-box" onClick={startTracking} />
-      <button className="hierarchy-box delete-button" onClick={onDelete}>x</button>
+      <div className="hierarchy-box delete-hierarchy-row">
+        <button className="delete-button" onClick={onDelete}>x</button>
+      </div>
     </div>
   );
 }
