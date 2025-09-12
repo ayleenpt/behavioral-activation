@@ -4,11 +4,12 @@ import AddTask from './AddTask';
 import HierarchyHeader from './HierarchyHeader';
 import '../../styles/hierarchy/Hierarchy.css';
 
-function Hierarchy({ category = "Default Category" }) {
+function Hierarchy({ category }) {
+  console.log('Hierarchy category:', category);
   const [tasks, setTasks] = useState([]);
 
   const fetchTasks = () => {
-    fetch('http://localhost:5000/api/tasks')
+    fetch(`http://localhost:5000/api/tasks?category=${category}`)
       .then(res => res.json())
       .then(data => {
         setTasks(data);
@@ -18,13 +19,23 @@ function Hierarchy({ category = "Default Category" }) {
 
   useEffect(() => {
     fetchTasks();
-  }, []);
+  }, [category]);
 
   return (
     <div className="hierarchy">
-      <div className="category">{category}</div>
+      <div className="categories">
+        {['routine', 'enjoyment', 'value'].map(cat => (
+          <button
+            key={cat}
+            className={`category${cat === category ? ' selected-category' : ''}`}
+            onClick={() => window.location.href = `/#/${cat}`}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
 
-  <AddTask refreshTasks={fetchTasks} />
+      <AddTask refreshTasks={fetchTasks} category={category} />
 
       <div className="hierarchy-grid">
         <HierarchyHeader />

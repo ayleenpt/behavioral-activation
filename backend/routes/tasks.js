@@ -3,10 +3,18 @@ import Task from '../models/Task.js';
 
 const router = express.Router();
 
-// Get all tasks
+// Get all tasks or filter by category
 router.get('/', async (req, res) => {
   try {
-    const tasks = await Task.find();
+    const filter = {};
+    if (req.query.category) {
+      filter.category = req.query.category;
+    }
+    console.log('Filter:', filter);
+
+    const tasks = await Task.find(filter);
+    console.log('Tasks found:', tasks);
+
     res.json(tasks);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -19,6 +27,7 @@ router.post('/', async (req, res) => {
     const newTask = new Task(req.body);
     const savedTask = await newTask.save();
     res.status(201).json(savedTask);
+    console.log('Task created:', savedTask);
   } catch (err) {
     res.status(400).json({ error: err.message });
   }

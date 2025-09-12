@@ -5,9 +5,6 @@ import Hierarchy from './components/hierarchy/Hierarchy';
 import './App.css';
 
 function App() {
-  const [valueTasks, setValueTasks] = useState([]);
-  const [enjoymentTasks, setEnjoymentTasks] = useState([]);
-  const [routineTasks, setRoutineTasks] = useState([]);
 
   return (
     <div className="App">
@@ -18,27 +15,21 @@ function App() {
           <Route
             path="/enjoyment"
             element={
-              <Hierarchy
-                category="enjoyment" tasks={enjoymentTasks} setTasks={setEnjoymentTasks}
-              />
+              <Hierarchy category="enjoyment" />
             }
           />
 
           <Route
             path="/value"
             element={
-              <Hierarchy
-                category="value" tasks={valueTasks} setTasks={setValueTasks}
-              />
+              <Hierarchy category="value" />
             }
           />
 
           <Route
             path="/routine"
             element={
-              <Hierarchy
-                category="routine" tasks={routineTasks} setTasks={setRoutineTasks}
-              />
+              <Hierarchy category="routine" />
             }
           />
         </Routes>

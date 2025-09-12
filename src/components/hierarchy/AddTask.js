@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Task } from '../task/Task';
 import '../../styles/hierarchy/AddTask.css';
 
-function AddTask({ refreshTasks }) {
+function AddTask({ refreshTasks, category }) {
   const [input, setInput] = useState('');
 
   const handleAdd = () => {
@@ -13,7 +13,7 @@ function AddTask({ refreshTasks }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           taskName: `${input.trim()}`,
-          category: 'value',
+          category: category,
         })
       })
         .then(res => {

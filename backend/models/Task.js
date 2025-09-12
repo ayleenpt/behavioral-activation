@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { Frequency } from './Frequency.js';
+import Frequency from './Frequency.js';
 
 const TaskSchema = new mongoose.Schema({
   taskName: { type: String, required: true },
