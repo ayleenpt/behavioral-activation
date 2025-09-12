@@ -19,20 +19,28 @@ function TrackerHeader() {
 
   return (
     <div className="tracker-header">
-      <div className="gap-left" />
-        {weekDates.map((dateObj, idx) => (
-          <Day
-            key={idx}
-            weekday={weekdays[idx]}
-            date={`${dateObj.getMonth() + 1}/${dateObj.getDate()}/${dateObj.getFullYear()}`}
-            isToday={
-              dateObj.getDate() === today.getDate() &&
-              dateObj.getMonth() === today.getMonth() &&
-              dateObj.getFullYear() === today.getFullYear()
-            }
-          />
-        ))}
-      <div className="gap-right" />
+      <div className="header-days">
+        <div className="gap-left" />
+          {weekDates.map((dateObj, idx) => (
+            <Day
+              key={idx}
+              weekday={weekdays[idx]}
+              date={`${dateObj.getMonth() + 1}/${dateObj.getDate()}/${dateObj.getFullYear()}`}
+              isToday={
+                dateObj.getDate() === today.getDate() &&
+                dateObj.getMonth() === today.getMonth() &&
+                dateObj.getFullYear() === today.getFullYear()
+              }
+            />
+          ))}
+        <div className="gap-right" />
+      </div>
+
+      <div className="header-labels">
+        <div className="header-label frequency-header">frequency</div>
+        <div className="header-label tracker-task-header">task</div>
+        <div className="header-label status-header">status</div>
+      </div>
     </div>
   );
 } export default TrackerHeader;
