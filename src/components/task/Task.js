@@ -1,3 +1,3 @@
-export function Task(task, difficulty, tracking, frequency) {
-  return { task, difficulty, tracking, frequency };
+export function Task(taskName, difficulty, tracking, frequency) {
+  return { taskName, difficulty, tracking, frequency };
 }

@@ -8,7 +8,7 @@ function Hierarchy({ category = "Default Category" }) {
   const [tasks, setTasks] = useState([]);
 
   const addTask = (task) => {
-    setTasks([...tasks, { task, difficulty: 0 }]);
+    setTasks([...tasks, task]);
   };
 
   const deleteTask = (idx) => {
@@ -23,7 +23,11 @@ function Hierarchy({ category = "Default Category" }) {
       <div className="hierarchy-grid">
         <HierarchyHeader />
         {tasks.map((t, idx) => (
-          <HierarchyRow key={idx} task={t.task} onDelete={() => deleteTask(idx)} />
+          <HierarchyRow
+            key={idx}
+            task={t}
+            onDelete={() => deleteTask(idx)}
+          />
         ))}
       </div>
     </div>
