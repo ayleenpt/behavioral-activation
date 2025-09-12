@@ -6,7 +6,7 @@ const TaskSchema = new mongoose.Schema({
   difficulty: { type: Number, default: 1 },
   tracking: { type: Boolean, default: false },
   category: { type: String, enum: ['value', 'enjoyment', 'routine'], required: true },
-  frequency: { type: Frequency, required: true },
+  frequency: { type: Frequency, default: null },
   createdAt: { type: Date, default: Date.now }
 });
 

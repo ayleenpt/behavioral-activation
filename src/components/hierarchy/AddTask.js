@@ -2,14 +2,26 @@ import { useState } from 'react';
 import { Task } from '../task/Task';
 import '../../styles/hierarchy/AddTask.css';
 
-function AddTask({ onAdd }) {
+function AddTask({ refreshTasks }) {
   const [input, setInput] = useState('');
 
   const handleAdd = () => {
     if (input.trim()) {
       const task = Task(input.trim(), 1, false, null);
-      onAdd(task);
-      setInput('');
+      fetch('http://localhost:5000/api/tasks', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          taskName: `${input.trim()}`,
+          category: 'value',
+        })
+      })
+        .then(res => {
+          if (res.ok) {
+            setInput('');
+            if (refreshTasks) refreshTasks();
+          }
+        });
     }
   };
 
