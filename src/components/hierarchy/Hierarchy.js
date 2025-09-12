@@ -7,8 +7,16 @@ import '../../styles/hierarchy/Hierarchy.css';
 function Hierarchy({ category = "Default Category" }) {
   const [tasks, setTasks] = useState([]);
 
-  const deleteTask = (idx) => {
-    setTasks(tasks => tasks.filter((_, i) => i !== idx));
+  const deleteTask = (task,id) => {
+    if (window.confirm(`Are you sure you want to delete this task?\n\n${task}`)) {
+      fetch(`http://localhost:5000/api/tasks/${id}`, {
+        method: 'DELETE',
+      })
+        .then(res => {
+          if (res.ok) fetchTasks();
+        })
+        .catch(err => console.error(err));
+    }
   };
 
 
@@ -33,11 +41,11 @@ function Hierarchy({ category = "Default Category" }) {
 
       <div className="hierarchy-grid">
         <HierarchyHeader />
-        {tasks.map((t, idx) => (
+        {tasks.map((t) => (
           <HierarchyRow
-            key={idx}
+            key={t._id}
             task={t}
-            onDelete={() => deleteTask(idx)}
+            onDelete={() => deleteTask(t.taskName, t._id)}
           />
         ))}
       </div>
