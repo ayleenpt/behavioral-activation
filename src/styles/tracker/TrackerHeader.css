@@ -1,0 +1,21 @@
+.tracker-header {
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+}
+
+.gap-left {
+  width: 300px;
+  height: 41px;
+  border: 1px solid black;
+}
+
+.gap-right{
+  width: 100px;
+  height: 41px;
+  border: 1px solid black;
+  border-left: none;
+}
