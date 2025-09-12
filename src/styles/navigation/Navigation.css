@@ -8,49 +8,59 @@
 }
 
 .pages {
-  margin-top: 20px;
-  margin-bottom: -50px;
+  margin-top: 30px;
 }
 
 .categories {
-  margin-bottom: 10px;
+  margin: 20px;
 }
 
 .path {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 40px;
   font-weight: bold;
-  margin: 40px 0;
   border-radius: 50px;
-  padding: 0 15px 10px 15px;
-  background: rgb(225, 225, 225);
   border: none;
 }
 
-.pages .path {
-  font-size: 50px;
-}
-
 .path:hover {
-  background-color: rgb(200, 200, 200);
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.selected-path {
-  background-color: rgb(173, 216, 230);
+.pages .path {
+  font-size: 40px;
+  padding: 0 15px 5px 15px;
+  background: none;
+}
+
+.pages .path:hover {
+  background: rgb(225, 225, 225);
 }
 
 .pages .selected-path {
-  background-color: rgb(182, 230, 173);
-}
-
-.selected-path:hover {
-  background-color: rgb(146, 186, 200);
+  color: rgb(98, 164, 186);
 }
 
 .pages .selected-path:hover {
-  background-color: rgb(150, 200, 146);
+  color: rgb(66, 146, 173);
+}
+
+.categories .path {
+  font-size: 25px;
+  padding: 0 10px 4px 10px;
+  background: rgb(225, 225, 225);
+}
+
+.categories .path:hover {
+  background-color: rgb(200, 200, 200);
+}
+
+.categories .selected-path {
+  background-color: rgb(173, 216, 230);
+}
+
+.categories .selected-path:hover {
+  background-color: rgb(146, 186, 200);
 }
