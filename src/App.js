@@ -1,4 +1,4 @@
-import { HashRouter as Router, Routes, Route } from 'react-router-dom'
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import Tracker from './components/tracker/Tracker';
 import Hierarchy from './components/hierarchy/Hierarchy';
 import './App.css';
@@ -8,6 +8,8 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
+          <Route path="/" element={<Navigate to="/tracker/value" replace />} />
+
           {/* Tracker Routes */}
           <Route
             path="/tracker/enjoyment"

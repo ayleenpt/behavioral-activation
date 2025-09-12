@@ -11,7 +11,7 @@ function Difficulty({ className, task, refreshTasks, min = 0, max = 7 }) {
 
     setDifficulty(val);
 
-    fetch(`http://localhost:5000/api/tasks/${task._id}`, {
+    fetch(`http://localhost:8080/api/tasks/${task._id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ ...task, difficulty: val })

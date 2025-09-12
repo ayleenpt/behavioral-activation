@@ -6,7 +6,7 @@ function HierarchyRow({ task, refreshTasks }) {
 
   const deleteTask = () => {
     if (window.confirm(`Are you sure you want to delete this task?\n\n${task.taskName}`)) {
-      fetch(`http://localhost:5000/api/tasks/${task._id}`, {
+      fetch(`http://localhost:8080/api/tasks/${task._id}`, {
         method: 'DELETE',
       })
         .then(res => {

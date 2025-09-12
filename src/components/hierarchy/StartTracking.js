@@ -7,7 +7,7 @@ function StartTracking({ className, task, refreshTasks, }) {
   const toggleTracking = () => {
     const shouldTrack = !tracking;
     setTracking(shouldTrack);
-    fetch(`http://localhost:5000/api/tasks/${task._id}`, {
+    fetch(`http://localhost:8080/api/tasks/${task._id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ ...task, tracking: shouldTrack })

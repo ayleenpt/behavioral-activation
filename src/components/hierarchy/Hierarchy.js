@@ -11,7 +11,7 @@ function Hierarchy({ category }) {
   const [tasks, setTasks] = useState([]);
 
   const fetchTasks = () => {
-    fetch(`http://localhost:5000/api/tasks?category=${category}`)
+    fetch(`http://localhost:8080/api/tasks?category=${category}`)
       .then(res => res.json())
       .then(data => {
         setTasks(data);

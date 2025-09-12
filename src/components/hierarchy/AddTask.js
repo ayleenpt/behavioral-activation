@@ -8,7 +8,7 @@ function AddTask({ refreshTasks, category }) {
   const handleAdd = () => {
     if (input.trim()) {
       const task = Task(input.trim(), 1, false, null);
-      fetch('http://localhost:5000/api/tasks', {
+      fetch('http://localhost:8080/api/tasks', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
