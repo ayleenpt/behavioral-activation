@@ -5,6 +5,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  font-weight: bold;
+  background-color: rgb(226, 243, 248);
 }
 
 .header-label {

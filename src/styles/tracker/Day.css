@@ -18,6 +18,6 @@
 }
 
 .day.today {
-  background: #e3f2fd;
+  background-color: rgb(173, 216, 230);
   position: relative;
 }

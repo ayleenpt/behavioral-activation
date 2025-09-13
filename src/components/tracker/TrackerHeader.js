@@ -13,7 +13,7 @@ function TrackerHeader() {
     });
   }
 
-  const weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
   const weekDates = getWeekDates();
   const today = new Date();
 
