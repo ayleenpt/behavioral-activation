@@ -1,59 +1,71 @@
 import { useState } from 'react';
+import StartTrackingPopup from './StartTrackingPopup';
 import { Frequency } from '../task/Frequency';
 import '../../styles/hierarchy/StartTracking.css';
 
-function StartTracking({ className, task, refreshTasks, }) {
-  const [tracking, setTracking] = useState(task.tracking)
+function StartTracking({ className, task, refreshTasks }) {
+  const [tracking, setTracking] = useState(task.tracking);
+  const [showPopup, setShowPopup] = useState(false);
 
-  const toggleTracking = () => {
-    const shouldTrack = !tracking;
-    if (!shouldTrack && !window.confirm(`Are you sure you want to stop tracking "${task.taskName}"?`)) {
-      return;
+  const handleStartTracking = () => {
+    setShowPopup(true);
+  };
+
+  const handleStopTracking = () => {
+    if (window.confirm(`Are you sure you want to stop tracking "${task.taskName}"?`)) {
+      const body = { ...task, tracking: false };
+      setTracking(false);
+      fetch(`http://localhost:8080/api/tasks/${task._id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      })
+        .then(res => res.json())
+        .then(() => {
+          if (refreshTasks) refreshTasks();
+        })
+        .catch(err => console.error(err));
     }
+  };
 
-    var body = { ...task, tracking: shouldTrack };
-
-    if (shouldTrack) {
-      let count = window.prompt('Enter count per interval (must be a number > 0):');
-      if (count === null) return;
-      count = Number(count);
-      if (isNaN(count) || count <= 0) {
-        alert('Invalid count. Please enter a number greater than 0.');
-        return;
-      }
-
-      let interval = window.prompt('Enter interval: "day" or "week"');
-      if (interval === null) return;
-      interval = interval.toLowerCase();
-      if (interval !== 'day' && interval !== 'week') {
-        alert('Invalid interval. Please enter "day" or "week".');
-        return;
-      }
-      const frequency = Frequency(count, interval);
-      body.frequency = frequency;
-    }
-
-    setTracking(shouldTrack);
+  const handlePopupSubmit = ({ count, interval }) => {
+    const frequency = Frequency(count, interval);
+    const body = { ...task, tracking: true, frequency };
+    setTracking(true);
+    setShowPopup(false);
     fetch(`http://localhost:8080/api/tasks/${task._id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body)
     })
       .then(res => res.json())
-      .then(updated => {
+      .then(() => {
         if (refreshTasks) refreshTasks();
       })
       .catch(err => console.error(err));
   };
-  
+
+  const handlePopupCancel = () => {
+    setShowPopup(false);
+  };
+
   return (
     <div className={`${className ? className + ' ' : ''}start-tracking`}>
       <button
         className="start-tracking-button"
-        onClick={toggleTracking}
+        onClick={tracking ? handleStopTracking : handleStartTracking}
       >
         {tracking ? 'stop' : 'start'} tracking
       </button>
+      {showPopup && (
+        <StartTrackingPopup
+          taskName={task.taskName}
+          onSubmit={handlePopupSubmit}
+          onCancel={handlePopupCancel}
+        />
+      )}
     </div>
   );
-} export default StartTracking;
+}
+
+export default StartTracking;
