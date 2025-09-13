@@ -20,7 +20,7 @@ function TrackerHeader() {
   return (
     <div className="tracker-header">
       <div className="header-days">
-        <div className="gap-left" />
+        <div className="header-label task-frequency-header">task</div>
           {weekDates.map((dateObj, idx) => (
             <Day
               key={idx}
@@ -33,12 +33,6 @@ function TrackerHeader() {
               }
             />
           ))}
-        <div className="gap-right" />
-      </div>
-
-      <div className="header-labels">
-        <div className="header-label frequency-header">frequency</div>
-        <div className="header-label tracker-task-header">task</div>
         <div className="header-label status-header">status</div>
       </div>
     </div>
