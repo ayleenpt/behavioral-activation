@@ -4,8 +4,8 @@ import '../../styles/tracker/TrackerRow.css';
 
 function Task({ task, refreshTasks }) {
   const [checked, setChecked] = useState(Array(7).fill(false));
-  var interval = Interval.WEEK;
-  const count = 3;
+  var interval = task.frequency.interval;
+  const count = task.frequency.count;
 
   const handleCheck = idx => {
     setChecked(prev =>
