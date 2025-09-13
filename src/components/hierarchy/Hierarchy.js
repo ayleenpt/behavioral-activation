@@ -15,6 +15,7 @@ function Hierarchy({ category }) {
       .then(res => res.json())
       .then(data => {
         setTasks(data);
+        console.log('Tasks:', data);
       })
       .catch(err => console.error(err));
   };
