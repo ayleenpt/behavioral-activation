@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  background-color: rgb(226, 243, 248);
+  background-color: rgba(173, 216, 230, 0.4);
 }
 
 .header-label {
