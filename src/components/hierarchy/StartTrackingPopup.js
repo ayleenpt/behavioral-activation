@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Interval } from '../task/Interval';
-import '../../styles/hierarchy/StartTrackingPopup.css';
+import '../../styles/hierarchy/TrackingPopup.css';
 
 function StartTrackingPopup({ taskName, onSubmit, onCancel }) {
   const [count, setCount] = useState('');
@@ -45,7 +45,7 @@ function StartTrackingPopup({ taskName, onSubmit, onCancel }) {
           </select>
         </div>
         {error && <p className="error">{error}</p>}
-        <div className="buttons">
+        <div className="popup-buttons">
           <button onClick={handleSubmit}>Start</button>
           <button onClick={onCancel} className="cancel-button">Cancel</button>
         </div>

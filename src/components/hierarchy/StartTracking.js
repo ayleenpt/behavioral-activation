@@ -1,42 +1,26 @@
 import { useState } from 'react';
 import StartTrackingPopup from './StartTrackingPopup';
+import StopTrackingPopup from './StopTrackingPopup';
 import { Frequency } from '../task/Frequency';
 import '../../styles/hierarchy/StartTracking.css';
 
 function StartTracking({ className, task, refreshTasks }) {
   const [tracking, setTracking] = useState(task.tracking);
-  const [showPopup, setShowPopup] = useState(false);
+  const [startPopup, setStartPopup] = useState(false);
+  const [stopPopup, setStopPopup] = useState(false);
 
   const handleStartTracking = () => {
-    setShowPopup(true);
+    setStartPopup(true);
   };
 
-  const handleStopTracking = () => {
-    if (window.confirm(`Are you sure you want to stop tracking "${task.taskName}"?`)) {
-      const body = { ...task, tracking: false };
-      setTracking(false);
-      fetch(`http://localhost:8080/api/tasks/${task._id}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body)
-      })
-        .then(res => res.json())
-        .then(() => {
-          if (refreshTasks) refreshTasks();
-        })
-        .catch(err => console.error(err));
-    }
-  };
-
-  const handlePopupSubmit = ({ count, interval }) => {
+  const handleStartSubmit = ({ count, interval }) => {
     const frequency = Frequency(count, interval);
-    const body = { ...task, tracking: true, frequency };
     setTracking(true);
-    setShowPopup(false);
+    setStartPopup(false);
     fetch(`http://localhost:8080/api/tasks/${task._id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body)
+      body: JSON.stringify({ ...task, tracking: true, frequency })
     })
       .then(res => res.json())
       .then(() => {
@@ -45,8 +29,31 @@ function StartTracking({ className, task, refreshTasks }) {
       .catch(err => console.error(err));
   };
 
-  const handlePopupCancel = () => {
-    setShowPopup(false);
+  const handleStartCancel = () => {
+    setStartPopup(false);
+  };
+
+  const handleStopTracking = () => {
+    setStopPopup(true);
+  };
+
+  const handleStopSubmit = () => {
+    setTracking(false);
+    setStopPopup(false);
+    fetch(`http://localhost:8080/api/tasks/${task._id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ...task, tracking: false })
+    })
+      .then(res => res.json())
+      .then(() => {
+        if (refreshTasks) refreshTasks();
+      })
+      .catch(err => console.error(err));
+  }
+
+  const handleStopCancel = () => {
+    setStopPopup(false);
   };
 
   return (
@@ -57,11 +64,18 @@ function StartTracking({ className, task, refreshTasks }) {
       >
         {tracking ? 'stop' : 'start'} tracking
       </button>
-      {showPopup && (
+      {startPopup && (
         <StartTrackingPopup
           taskName={task.taskName}
-          onSubmit={handlePopupSubmit}
-          onCancel={handlePopupCancel}
+          onSubmit={handleStartSubmit}
+          onCancel={handleStartCancel}
+        />
+      )}
+      {stopPopup && (
+        <StopTrackingPopup
+          taskName={task.taskName}
+          onSubmit={handleStopSubmit}
+          onCancel={handleStopCancel}
         />
       )}
     </div>
