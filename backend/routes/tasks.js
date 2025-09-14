@@ -1,5 +1,6 @@
-import express from 'express';
+`import express from 'express';`
 import Task from '../models/Task.js';
+import TaskLog from '../models/TaskLog.js';
 
 const router = express.Router();
 
@@ -47,6 +48,7 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   try {
     await Task.findByIdAndDelete(req.params.id);
+    await TaskLog.deleteMany({ task: req.params.id });
     res.json({ message: 'Task deleted' });
   } catch (err) {
     res.status(400).json({ error: err.message });
