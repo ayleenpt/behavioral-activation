@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Interval } from '../task/Interval';
+import { Interval } from '../model/Interval';
 import '../../styles/hierarchy/TrackingPopup.css';
 
 function StartTrackingPopup({ taskName, onSubmit, onCancel }) {

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Task } from '../task/Task';
+import { Task } from '../model/Task';
 import '../../styles/hierarchy/AddTask.css';
 
 function AddTask({ refreshTasks, category }) {

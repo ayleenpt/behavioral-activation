@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import StartTrackingPopup from './StartTrackingPopup';
 import StopTrackingPopup from './StopTrackingPopup';
-import { Frequency } from '../task/Frequency';
+import { Frequency } from '../model/Frequency';
 import '../../styles/hierarchy/StartTracking.css';
 
 function StartTracking({ className, task, refreshTasks }) {

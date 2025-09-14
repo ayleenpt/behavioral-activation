@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Interval } from '../task/Interval';
+import { Interval } from '../model/Interval';
 import '../../styles/tracker/TrackerRow.css';
 
 function Task({ task, refreshTasks }) {
