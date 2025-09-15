@@ -1,3 +1,4 @@
+import Styles from '../../styles/Styles.module.css';
 import '../../styles/navigation/Navigation.css';
 
 function Categories({ baseUrl, category }) {
@@ -6,7 +7,7 @@ function Categories({ baseUrl, category }) {
         {['routine', 'enjoyment', 'value'].map(cat => (
           <button
             key={cat}
-            className={`path${cat === category ? ' selected-path' : ''}`}
+            className={`path ${cat === category ? Styles.blueBackground : ''}`}
             onClick={() => window.location.href = `/#/${baseUrl}/${cat}`}
           >
             {cat}

@@ -1,4 +1,5 @@
 import Day from './Day';
+import Styles from '../../styles/Styles.module.css';
 import '../../styles/tracker/TrackerHeader.css';
 
 function TrackerHeader() {
@@ -18,7 +19,7 @@ function TrackerHeader() {
   const today = new Date();
 
   return (
-    <div className="tracker-header">
+    <div className={`tracker-header ${Styles.blueTrackerHeader}`}>
       <div className="header-days">
         <div className="header-label task-frequency-header">task</div>
           {weekDates.map((dateObj, idx) => (

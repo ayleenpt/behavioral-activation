@@ -1,0 +1,19 @@
+.pinkText { color: #ffb6c1; }
+.pinkBackground { background-color: #ffb6c1; }
+.pinkBackground:hover { background-color: #ff9aa2; }
+
+.blueText { color: #add8e6; }
+.blueBackground { background-color: rgb(173, 216, 230); }
+.blueBackground:hover { background-color: rgb(146, 186, 200); }
+.blueCategories { background: rgb(225, 225, 225); }
+.blueCategories:hover { background-color: rgb(200, 200, 200); }
+.blueSelectedPage { color: rgb(98, 164, 186); }
+.blueSelectedPage:hover { color: rgb(66, 146, 173); }
+.blueDay { background-color: rgb(173, 216, 230); }
+.blueTrackerHeader { background-color: rgba(173, 216, 230, 0.4); }
+.blueTrackerRow { background-color: rgba(173, 216, 230, 0.2); }
+.blueProfileIcon { color: rgb(173, 216, 230);}
+
+.greenText { color: #90ee90; }
+.greenBackground { background-color: #90ee90; }
+.greenBackground:hover { background-color: #77dd77; }

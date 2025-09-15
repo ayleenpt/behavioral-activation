@@ -16,8 +16,3 @@
   width: 100px;
   height: 20px;
 }
-
-.day.today {
-  background-color: rgb(173, 216, 230);
-  position: relative;
-}

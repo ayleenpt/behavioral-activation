@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Interval } from '../model/Interval';
+import Styles from '../../styles/Styles.module.css';
 import '../../styles/tracker/TrackerRow.css';
 
 function Task({ task, refreshTasks }) {
@@ -41,7 +42,7 @@ function Task({ task, refreshTasks }) {
 
   return (
     <div className="tracker-row">
-      <div className="tracker-row-title tracker-row-box">{task.taskName}, {count} times per {interval}</div>
+      <div className={`tracker-row-title tracker-row-box ${Styles.blueTrackerRow}`}>{task.taskName}, {count} times per {interval}</div>
       <div className="checkboxes">
         {Array.from({ length: 7 }).map((_, idx) => (
           <div className="checkbox tracker-row-box" key={idx}>
@@ -53,7 +54,7 @@ function Task({ task, refreshTasks }) {
           </div>
         ))}
       </div>
-      <div className="tracker-row-status tracker-row-box">{status}</div>
+      <div className={`tracker-row-status tracker-row-box ${Styles.blueTrackerRow}`}>{status}</div>
     </div>
   );
 } export default Task;

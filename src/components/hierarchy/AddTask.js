@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Task } from '../model/Task';
+import Styles from '../../styles/Styles.module.css';
 import '../../styles/hierarchy/AddTask.css';
 
 function AddTask({ refreshTasks, category }) {
@@ -33,7 +33,7 @@ function AddTask({ refreshTasks, category }) {
         onChange={e => setInput(e.target.value)}
         onKeyDown={e => { if (e.key === 'Enter') handleAdd(); }}
       />
-      <button className="add-task-button" onClick={handleAdd}>
+      <button className={`add-task-button ${Styles.blueBackground}`} onClick={handleAdd}>
         add task
       </button>
     </div>
