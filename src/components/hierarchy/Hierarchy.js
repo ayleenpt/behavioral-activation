@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Header from '../user/Header';
 import Pages from '../navigation/Pages';
 import Categories from '../navigation/Categories';
 import HierarchyRow from './HierarchyRow';
@@ -26,6 +27,7 @@ function Hierarchy({ category }) {
 
   return (
     <div className="hierarchy">
+      <Header />
       <Pages baseUrl="hierarchy" category={category} />
       <Categories baseUrl="hierarchy" category={category} />
 

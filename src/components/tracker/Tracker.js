@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Header from '../user/Header';
 import TrackerHeader from './TrackerHeader';
 import Pages from '../navigation/Pages';
 import Categories from '../navigation/Categories';
@@ -23,6 +24,7 @@ function Tracker({ category }) {
 
   return (
     <div className="tracker">
+      <Header />
       <Pages baseUrl="tracker" category={category} />
       <Categories baseUrl="tracker" category={category} />
       <div className="tracker-grid">
