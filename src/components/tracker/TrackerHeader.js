@@ -26,7 +26,7 @@ function TrackerHeader() {
             <Day
               key={idx}
               weekday={weekdays[idx]}
-              date={`${dateObj.getMonth() + 1}/${dateObj.getDate()}/${dateObj.getFullYear()}`}
+              date={`${dateObj.getMonth() + 1}/${dateObj.getDate()}`}
               isToday={
                 dateObj.getDate() === today.getDate() &&
                 dateObj.getMonth() === today.getMonth() &&
