@@ -10,7 +10,7 @@ function Tracker({ category }) {
   const [tasks, setTasks] = useState([]);
 
   const fetchTasks = () => {
-    fetch(`http://localhost:8080/api/tasks?category=${category}`)
+    fetch(`http://localhost:8080/api/tasks?category=${category}&tracking=true`)
       .then(res => res.json())
       .then(data => {
         setTasks(data);

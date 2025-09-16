@@ -4,13 +4,16 @@ import TaskLog from '../models/TaskLog.js';
 
 const router = express.Router();
 
-// Get all tasks or filter by category
+// Get all tasks or filter
 router.get('/', async (req, res) => {
   try {
     const filter = {};
     if (req.query.category) {
       filter.category = req.query.category;
+    } if (req.query.tracking) {
+      filter.tracking = req.query.tracking === 'true';
     }
+
     console.log('Filter:', filter);
 
     const tasks = await Task.find(filter);
@@ -37,8 +40,10 @@ router.post('/', async (req, res) => {
 // Update a task
 router.put('/:id', async (req, res) => {
   try {
+    console.log('PUT: Request body:', req.body)
     const updatedTask = await Task.findByIdAndUpdate(req.params.id, req.body, { new: true });
     res.json(updatedTask);
+    console.log('Task updated:', updatedTask)
   } catch (err) {
     res.status(400).json({ error: err.message });
   }
