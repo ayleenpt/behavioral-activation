@@ -7,17 +7,12 @@
   border-bottom: 1px solid black;
   border-right: 1px solid black;
   height: 20px;
-  width: 100px;
+  width: 60px;
 }
 
 .date {
   border: 1px solid black;
   border-left: none;
-  width: 100px;
+  width: 60px;
   height: 20px;
-}
-
-.day.today {
-  background: #e3f2fd;
-  position: relative;
 }

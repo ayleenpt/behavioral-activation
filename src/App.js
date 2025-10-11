@@ -1,6 +1,9 @@
 import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import Login from './components/user/Login';
+import SignUp from './components/user/SignUp';
 import Tracker from './components/tracker/Tracker';
 import Hierarchy from './components/hierarchy/Hierarchy';
+import History from './components/history/History';
 import './App.css';
 
 function App() {
@@ -8,7 +11,12 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
+          {/* Base Path */}
           <Route path="/" element={<Navigate to="/tracker/value" replace />} />
+
+          {/* Public Routes */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
 
           {/* Tracker Routes */}
           <Route
@@ -36,6 +44,20 @@ function App() {
           <Route
             path="/hierarchy/routine"
             element={ <Hierarchy category="routine" /> }
+          />
+
+          {/* History Routes */}
+          <Route
+            path="/history/enjoyment"
+            element={ <History category="enjoyment" /> }
+          />
+          <Route
+            path="/history/value"
+            element={ <History category="value" /> }
+          />
+          <Route
+            path="/history/routine"
+            element={ <History category="routine" /> }
           />
         </Routes>
       </Router>

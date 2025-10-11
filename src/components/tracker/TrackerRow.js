@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
-import '../../styles/tracker/Task.css';
+import { Interval } from '../model/Interval';
+import Styles from '../../styles/Styles.module.css';
+import '../../styles/tracker/TrackerRow.css';
 
-function Task({ task, times, period }) {
+function Task({ task, refreshTasks }) {
   const [checked, setChecked] = useState(Array(7).fill(false));
+  var interval = task.frequency.interval;
+  const count = task.frequency.count;
 
   const handleCheck = idx => {
     setChecked(prev =>
@@ -12,19 +16,19 @@ function Task({ task, times, period }) {
 
   let status = '';
 
-  if (period === 'week') {
+  if (interval === Interval.WEEK) {
     const checkedCount = checked.filter(Boolean).length;
     const todayIdx = new Date().getDay() === 0 ? 6 : new Date().getDay() - 1;
     const daysLeft = checked.slice(todayIdx).filter(val => !val).length;
 
-    if (checkedCount >= times) {
+    if (checkedCount >= count) {
       status = 'done';
-    } else if (checkedCount + daysLeft >= times) {
+    } else if (checkedCount + daysLeft >= count) {
       status = 'on track';
     } else {
       status = 'missed';
     }
-  } else if (period === 'day') {
+  } else if (interval === Interval.DAY) {
     const todayIdx = new Date().getDay() === 0 ? 6 : new Date().getDay() - 1;
     const missed = checked.slice(0, todayIdx).some(val => !val);
     if (checked.every(Boolean)) {
@@ -37,11 +41,11 @@ function Task({ task, times, period }) {
   }
 
   return (
-    <div className="task">
-      <div className="title rowBox">{task}, {times} times per {period}</div>
+    <div className="tracker-row">
+      <div className={`tracker-row-title tracker-row-box ${Styles.blueTrackerRow}`}>{task.taskName}, {count} times per {interval}</div>
       <div className="checkboxes">
         {Array.from({ length: 7 }).map((_, idx) => (
-          <div className="checkbox rowBox" key={idx}>
+          <div className="checkbox tracker-row-box" key={idx}>
             <input
               type="checkbox"
               checked={checked[idx]}
@@ -50,7 +54,7 @@ function Task({ task, times, period }) {
           </div>
         ))}
       </div>
-      <div className="status rowBox">{status}</div>
+      <div className={`tracker-row-status tracker-row-box ${Styles.blueTrackerRow}`}>{status}</div>
     </div>
   );
 } export default Task;

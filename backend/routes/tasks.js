@@ -1,15 +1,19 @@
 import express from 'express';
 import Task from '../models/Task.js';
+import TaskLog from '../models/TaskLog.js';
 
 const router = express.Router();
 
-// Get all tasks or filter by category
+// Get all tasks or filter
 router.get('/', async (req, res) => {
   try {
     const filter = {};
     if (req.query.category) {
       filter.category = req.query.category;
+    } if (req.query.tracking) {
+      filter.tracking = req.query.tracking === 'true';
     }
+
     console.log('Filter:', filter);
 
     const tasks = await Task.find(filter);
@@ -36,8 +40,10 @@ router.post('/', async (req, res) => {
 // Update a task
 router.put('/:id', async (req, res) => {
   try {
+    console.log('PUT: Request body:', req.body)
     const updatedTask = await Task.findByIdAndUpdate(req.params.id, req.body, { new: true });
     res.json(updatedTask);
+    console.log('Task updated:', updatedTask)
   } catch (err) {
     res.status(400).json({ error: err.message });
   }
@@ -47,6 +53,7 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   try {
     await Task.findByIdAndDelete(req.params.id);
+    await TaskLog.deleteMany({ task: req.params.id });
     res.json({ message: 'Task deleted' });
   } catch (err) {
     res.status(400).json({ error: err.message });

@@ -12,13 +12,8 @@
 
 .add-task-button {
   width: 80px;
-  background-color: rgb(173, 216, 230);
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 15px;
-}
-
-.add-task-button:hover {
-  background-color: rgb(146, 186, 200);
 }

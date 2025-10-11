@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Task } from '../task/Task';
+import Styles from '../../styles/Styles.module.css';
 import '../../styles/hierarchy/AddTask.css';
 
 function AddTask({ refreshTasks, category }) {
@@ -7,7 +7,6 @@ function AddTask({ refreshTasks, category }) {
 
   const handleAdd = () => {
     if (input.trim()) {
-      const task = Task(input.trim(), 1, false, null);
       fetch('http://localhost:8080/api/tasks', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -34,7 +33,7 @@ function AddTask({ refreshTasks, category }) {
         onChange={e => setInput(e.target.value)}
         onKeyDown={e => { if (e.key === 'Enter') handleAdd(); }}
       />
-      <button className="add-task-button" onClick={handleAdd}>
+      <button className={`add-task-button ${Styles.blueBackground}`} onClick={handleAdd}>
         add task
       </button>
     </div>

@@ -39,28 +39,7 @@
   background: rgb(225, 225, 225);
 }
 
-.pages .selected-path {
-  color: rgb(98, 164, 186);
-}
-
-.pages .selected-path:hover {
-  color: rgb(66, 146, 173);
-}
-
 .categories .path {
   font-size: 25px;
   padding: 0 10px 4px 10px;
-  background: rgb(225, 225, 225);
-}
-
-.categories .path:hover {
-  background-color: rgb(200, 200, 200);
-}
-
-.categories .selected-path {
-  background-color: rgb(173, 216, 230);
-}
-
-.categories .selected-path:hover {
-  background-color: rgb(146, 186, 200);
 }

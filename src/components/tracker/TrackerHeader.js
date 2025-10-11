@@ -1,4 +1,5 @@
 import Day from './Day';
+import Styles from '../../styles/Styles.module.css';
 import '../../styles/tracker/TrackerHeader.css';
 
 function TrackerHeader() {
@@ -13,19 +14,19 @@ function TrackerHeader() {
     });
   }
 
-  const weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
   const weekDates = getWeekDates();
   const today = new Date();
 
   return (
-    <div className="tracker-header">
+    <div className={`tracker-header ${Styles.blueTrackerHeader}`}>
       <div className="header-days">
-        <div className="gap-left" />
+        <div className="header-label task-frequency-header">task</div>
           {weekDates.map((dateObj, idx) => (
             <Day
               key={idx}
               weekday={weekdays[idx]}
-              date={`${dateObj.getMonth() + 1}/${dateObj.getDate()}/${dateObj.getFullYear()}`}
+              date={`${dateObj.getMonth() + 1}/${dateObj.getDate()}`}
               isToday={
                 dateObj.getDate() === today.getDate() &&
                 dateObj.getMonth() === today.getMonth() &&
@@ -33,12 +34,6 @@ function TrackerHeader() {
               }
             />
           ))}
-        <div className="gap-right" />
-      </div>
-
-      <div className="header-labels">
-        <div className="header-label frequency-header">frequency</div>
-        <div className="header-label tracker-task-header">task</div>
         <div className="header-label status-header">status</div>
       </div>
     </div>

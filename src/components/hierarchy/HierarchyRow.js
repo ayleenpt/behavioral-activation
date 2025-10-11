@@ -5,7 +5,7 @@ import '../../styles/hierarchy/HierarchyRow.css';
 function HierarchyRow({ task, refreshTasks }) {
 
   const deleteTask = () => {
-    if (window.confirm(`Are you sure you want to delete this task?\n\n${task.taskName}`)) {
+    if (window.confirm(`Are you sure you want to delete "${task.taskName}"? This action cannot be undone.`)) {
       fetch(`http://localhost:8080/api/tasks/${task._id}`, {
         method: 'DELETE',
       })
