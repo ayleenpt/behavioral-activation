@@ -1,10 +1,9 @@
 .tracker-row {
-  width: auto;
+  width: 100%;
   height: auto;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: var(--task-col, 400px) repeat(7, var(--day-col, 60px)) var(--status-col, 100px);
+  align-items: stretch;
 }
 
 .tracker-row-box {
@@ -16,30 +15,39 @@
 }
 
 .tracker-row-title {
-  width: 390px;
+  grid-column: 1 / 2;
   border: 1px solid black;
   border-top: none;
-  justify-content: start;
-  overflow: wrap;
-  text-align: left;
-  padding-left: 10px;
+  justify-content: center;
+  overflow-wrap: anywhere;
+  white-space: normal;
+  text-align: center;
+  padding: 8px 10px;
 }
 
 .checkboxes {
-  display: flex;
-  flex-direction: task;
-  justify-content: space-between;
-  align-items: center;
+  grid-column: 2 / 9;
+  display: grid;
+  grid-template-columns: repeat(7, 60px);
+  gap: 0;
+  align-items: stretch;
+  grid-auto-rows: 1fr;
 }
 
 .checkbox {
-  width: 60px;
+  width: var(--day-col, 60px);
   border-bottom: 1px solid black;
   border-right: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .tracker-row-status {
-  width: 100px;
+  grid-column: 9 / 10;
   border-bottom: 1px solid black;
   border-right: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

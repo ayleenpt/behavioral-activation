@@ -5,6 +5,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: start;
+  padding: 0 12px;
 }
 
 .title {
@@ -14,7 +15,28 @@
 }
 
 .tracker-grid {
-  width: auto;
+  width: 100%;
   height: auto;
   margin-top: 20px;
+  /* Allow horizontal scrolling on smaller screens */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  /* center the inner content inside the scrollable area */
+  display: flex;
+  justify-content: center;
+  /* enable gentle snap behavior for horizontal scroll */
+  scroll-snap-type: x proximity;
+}
+
+.tracker-grid-inner {
+  display: block;
+  min-width: 720px; 
+  margin: 0 auto;
+  scroll-snap-align: left;
+}
+
+:root {
+  --task-col: 400px;
+  --day-col: 60px;
+  --status-col: 100px;
 }

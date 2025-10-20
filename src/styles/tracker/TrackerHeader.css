@@ -1,11 +1,18 @@
 .tracker-header {
-  width: auto;
+  width: 100%;
   height: auto;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  display: block;
   font-weight: bold;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.header-days {
+  /* Shared grid: task column, 7 day columns, status */
+  display: grid;
+  grid-template-columns: var(--task-col) repeat(7, var(--day-col)) var(--status-col);
+  align-items: center;
 }
 
 .header-label {
@@ -14,24 +21,14 @@
   justify-content: center;
 }
 
-.header-days,
-.header-labels {
-  width: auto;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
 .task-frequency-header {
-  width: 400px;
+  grid-column: 1 / 2;
   height: 41px;
   border: 1px solid black;
 }
 
 .status-header {
-  width: 100px;
+  grid-column: 9 / 10;
   height: 41px;
   border: 1px solid black;
   border-left: none;
