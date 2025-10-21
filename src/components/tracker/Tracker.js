@@ -28,14 +28,16 @@ function Tracker({ category }) {
       <Pages baseUrl="tracker" category={category} />
       <Categories baseUrl="tracker" category={category} />
       <div className="tracker-grid">
-        <TrackerHeader />
-        {tasks.map((t) => (
-          <TrackerRow
-            key={t._id}
-            task={t}
-            refreshTasks={fetchTasks}
-          />
-        ))}
+        <div className="tracker-grid-inner">
+          <TrackerHeader />
+          {tasks.map((t) => (
+            <TrackerRow
+              key={t._id}
+              task={t}
+              refreshTasks={fetchTasks}
+            />
+          ))}
+        </div>
       </div>
     </div>
   )

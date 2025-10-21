@@ -5,6 +5,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: start;
+  padding-left: 12px;
+  padding-right: 12px;
+  box-sizing: border-box;
 }
 
 .title {
@@ -14,7 +17,25 @@
 }
 
 .tracker-grid {
-  width: auto;
+  width: 100%;
   height: auto;
   margin-top: 20px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  justify-content: center;
+  scroll-snap-type: x proximity;
+}
+
+.tracker-grid-inner {
+  display: block;
+  min-width: 720px; 
+  margin: 0 auto;
+  scroll-snap-align: left;
+}
+
+:root {
+  --task-col: 400px;
+  --day-col: 60px;
+  --status-col: 100px;
 }
