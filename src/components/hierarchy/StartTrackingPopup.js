@@ -4,7 +4,7 @@ import '../../styles/hierarchy/TrackingPopup.css';
 
 function StartTrackingPopup({ taskName, onSubmit, onCancel }) {
   const [count, setCount] = useState('');
-  const [interval, setInterval] = useState('day');
+  const [interval, setInterval] = useState('week');
   const [error, setError] = useState('');
 
   const handleSubmit = () => {
@@ -34,15 +34,7 @@ function StartTrackingPopup({ taskName, onSubmit, onCancel }) {
             value={count}
             onChange={e => setCount(e.target.value)}
           />
-          <label>times per</label>
-          <select
-            className="interval-select"
-            value={interval}
-            onChange={e => setInterval(e.target.value)}
-          >
-            <option value="day">{Interval.DAY.toLowerCase()}</option>
-            <option value="week">{Interval.WEEK.toLowerCase()}</option>
-          </select>
+          <label>times per week</label>
         </div>
         {error && <p className="error">{error}</p>}
         <div className="popup-buttons">
