@@ -1,6 +1,7 @@
 this is for jayson TODO list
 
 ## TODO
+- [ ] track all tasks per week rather than per day or week
 - [ ] make accounts/login, restrict visible pages based on login cookies
 - [ ] percentage based on completion instead of done/missed/in progress statuses
 - [ ] make a history account so you can view snapshots of previous weeks
