@@ -9,7 +9,7 @@
 }
 
 .header-days {
-  /* Shared grid: task column, 7 day columns, status */
+
   display: grid;
   grid-template-columns: var(--task-col) repeat(7, var(--day-col)) var(--status-col);
   align-items: center;

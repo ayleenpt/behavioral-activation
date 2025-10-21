@@ -18,13 +18,10 @@
   width: 100%;
   height: auto;
   margin-top: 20px;
-  /* Allow horizontal scrolling on smaller screens */
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  /* center the inner content inside the scrollable area */
   display: flex;
   justify-content: center;
-  /* enable gentle snap behavior for horizontal scroll */
   scroll-snap-type: x proximity;
 }
 
